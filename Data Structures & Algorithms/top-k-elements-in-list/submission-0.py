@@ -4,12 +4,16 @@ class Solution:
 
         for num in nums:
             counter[num] = counter.get(num, 0) + 1
-        res = []
+
+        arr = []
 
         for num, cnt in counter.items():
-            res.append([num, cnt])
+            arr.append([cnt, num])
+        arr.sort()
+
+        res = []
+
+        while len(res) < k:
+            res.append(arr.pop()[1])
         
-        sorted_list = sorted(res, key = lambda item: item[1], reverse = True)
-        for i in range(len(sorted_list)):
-            sorted_list[i] = sorted_list[i][0]
-        return sorted_list[:k]
+        return res

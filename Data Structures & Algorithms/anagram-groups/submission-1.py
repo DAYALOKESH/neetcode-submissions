@@ -2,7 +2,6 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         counter = defaultdict(list)
         for char in strs:
-            sorted_char = "".join(sorted(char))
-            counter[sorted_char].append(char)
+            counter["".join(sorted(char))].append(char)
 
         return list(counter.values())

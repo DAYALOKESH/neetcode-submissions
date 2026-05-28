@@ -2,9 +2,8 @@ class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         counter = {}
 
-        for num in nums:
-            counter[num] = counter.get(num, 0) +1
-            if counter[num] > 1:
+        for i in range(len(nums)):
+            counter[nums[i]] = counter.get(nums[i], 0) + 1
+            if counter[nums[i]] != 1:
                 return True
-            
         return False

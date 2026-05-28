@@ -1,10 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        count = {}
+        counter = {}
 
-        for i, num in enumerate(nums):
-            req = target - num
-            if req in count:
-                return [count[req], i]
-            count[num] = i
-        return False
+        for i in range(len(nums)):
+            needed = target - nums[i]
+
+            if needed in counter.keys():
+                return [counter[needed], i]
+            counter[nums[i]] = i
+        return []
